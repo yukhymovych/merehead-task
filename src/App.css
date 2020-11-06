@@ -1,0 +1,92 @@
+body{
+   background: rgb(228, 228, 228);
+}
+.App {
+   max-width: 700px;
+   margin: 0 auto;
+}
+
+
+.form{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   margin-top: 50px;
+}
+.form input,
+.form button{
+   outline: none;
+   width: 48%;
+   box-sizing: border-box;
+   margin-bottom: 15px;
+   border: none;
+   box-shadow: 0 5px 20px -15px black;
+}
+.form input{
+   padding: 10px 20px;
+}
+.form button{
+   cursor: pointer;
+   font-size: 14px;
+   font-weight: bold;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   background: rgb(52, 167, 23);
+   color: white
+}
+
+.users{
+   margin-top: 20px;
+}
+.user{
+   margin-bottom: 20px;
+   position: relative;
+   width: 100%;
+   background: white;
+   box-shadow: 0 5px 20px -15px black;
+   box-sizing: border-box;
+   padding: 30px
+}
+.user__name{
+   font-weight: bold;
+   font-size: 19px;
+   display: inline-block;
+}
+.user__surname{
+   font-weight: bold;
+   font-size: 19px;
+   display: inline-block;
+   margin-left: 8px;
+   margin-bottom: 20px;
+}
+.user__desc{
+   margin-bottom: 20px;
+}
+.user__remove, .user__edit{
+   cursor: pointer;
+   font-size: 11px;
+   font-weight: bold;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   background: rgb(211, 47, 47);
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   margin-right: 10px;
+}
+.user__edit{
+   background: rgb(52, 167, 23);
+}
+
+.pagination{
+   margin-top: 30px;
+   text-align: center;
+}
+.nav-link{
+   cursor: pointer;
+   display: inline-block;
+   background: white;
+   box-shadow: 0 5px 20px -15px black;
+   padding: 5px 10px;
+   margin-right: 15px;
+}
