@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useEffect } from 'react';
 import axios from "axios";
-import Form from './components/form/form';
-import Users from './components/users/users';
+import Form from './components/form/Form';
+import Users from './components/users/Users';
 import { setUsers } from './store/users/actions';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router} from "react-router-dom";

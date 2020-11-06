@@ -30,6 +30,8 @@ const Form = () => {
      }
      
      makePostRequest();
+     
+     alert("User added");
    }
 
    return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
 import { useSelector, useDispatch } from 'react-redux';
-import User from '../user/user';
+import User from '../user/User';
 import { setUsers } from '../../store/users/actions';
 import {
    Switch,
@@ -51,6 +51,8 @@ const Users = () => {
 
       async function makeDeleteRequest() {
          let res = await axios.delete(`http://77.120.241.80:8811/api/user/${userId}`);
+
+         console.log(res.data);
       }
      
       makeDeleteRequest();
@@ -107,26 +109,12 @@ const Users = () => {
       )
    });
 
-   const editNameHandle = (e) => {
+   const handleInputChange = (e) => {
       setEditFormData({
-         ...editFormData,
-         name: e.target.value,
+         ...editFormData, 
+         [e.target.name]: e.target.value
       });
-   }
-
-   const editSurnameHandle = (e) => {
-      setEditFormData({
-         ...editFormData,
-         surname: e.target.value,
-      });
-   }
-
-   const editDescHandle = (e) => {
-      setEditFormData({
-         ...editFormData,
-         desc: e.target.value,
-      });
-   }
+   };
    
 
    
@@ -143,9 +131,9 @@ const Users = () => {
             {renderPageNumbers}
          </div>
          <div className="form edit-form" ref={editForm}>
-            <input type="text" name="name" placeholder="Name" value={editFormData.name} onChange={editNameHandle} />
-            <input type="text" name="surname" placeholder="Surname" value={editFormData.surname} onChange={editSurnameHandle}  />
-            <input type="text" name="description" placeholder="Description" value={editFormData.desc} onChange={editDescHandle}  />
+            <input type="text" name="name" placeholder="Name" value={editFormData.name} onChange={handleInputChange} />
+            <input type="text" name="surname" placeholder="Surname" value={editFormData.surname} onChange={handleInputChange}  />
+            <input type="text" name="desc" placeholder="Description" value={editFormData.desc} onChange={handleInputChange}  />
             <button onClick={saveUser}>Save</button>
          </div>
       </div>
