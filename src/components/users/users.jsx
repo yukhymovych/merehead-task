@@ -54,8 +54,6 @@ const Users = () => {
 
       async function makeDeleteRequest() {
          let res = await axios.delete(`http://77.120.241.80:8811/api/user/${userId}`);
-
-         console.log(res.data);
       }
      
       makeDeleteRequest();
