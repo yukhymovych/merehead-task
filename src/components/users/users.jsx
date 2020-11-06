@@ -3,11 +3,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from 'react-redux';
 import User from '../user/User';
 import { setUsers } from '../../store/users/actions';
-import {
-   Switch,
-   Route,
-   Link
-} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 
@@ -17,6 +13,8 @@ const Users = () => {
 
    const editForm = useRef();
 
+   const location = useLocation();
+
    const [usersList, setUsersList] = useState([]);
    const [currentPage, setCurrentPage] = useState(1);
    const [editFormData, setEditFormData] = useState({});
@@ -24,6 +22,11 @@ const Users = () => {
    useEffect(() => {
       setUsersList(store.users);
    });
+
+   useEffect(() => {
+      if(location.pathname[1])
+         setCurrentPage(location.pathname[1]);
+   }, [currentPage]);
 
 
    const pageNumbers = [];
@@ -34,9 +37,9 @@ const Users = () => {
 
    const renderPageNumbers = pageNumbers.map(number => {
      return (
-       <div className="nav-link" key={number} onClick={() => {setCurrentPage(number)}}>
+       <Link className="nav-link" to={`/${number}`} key={number} onClick={() => {setCurrentPage(number)}}>
          {number}
-       </div>
+       </Link>
      );
    });
 
@@ -121,11 +124,7 @@ const Users = () => {
    return (
       <div>
          <div className="users">
-            {/* <Switch>
-               <Route exact path="/:id"> */}
-                  {renderUsers}
-               {/* </Route>
-            </Switch> */}
+            {renderUsers}
          </div>
          <div className="pagination">
             {renderPageNumbers}
